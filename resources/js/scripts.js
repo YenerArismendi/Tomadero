@@ -1,10 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
     $('#datatablesSimple').DataTable({
-        "pageLength": 5,
         responsive: true,
         language: {
             // url: '/lang/datatable-es.json' // Traducción al español
         }
+    });
+    $('#datatablesPersonal').DataTable({
+        responsive: true
+    });
+    $('#datatablesArriendo').DataTable({
+        responsive: true
+    });
+    $('#datatablesServicios').DataTable({
+        responsive: true
     });
 });
 

@@ -13,7 +13,7 @@
                 <i class="fa-solid fa-sack-dollar"></i>
                 Registro de gastos
             </div>
-            <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion accordion-flush mb-4" id="accordionFlushExample">
                 <div class="container mt-4">
                     <div class="card text-center">
                         <div class="card-header">
@@ -69,7 +69,7 @@
                                     </table>
                                 </div>
                                 <div class="tab-pane fade" id="tab2">
-                                    <table id="datatablesSimple" class="table table-striped table-bordered"
+                                    <table id="datatablesPersonal" class="table table-striped table-bordered"
                                            style="width:100%">
                                         <thead>
                                         <tr>
@@ -92,7 +92,7 @@
 
                                 </div>
                                 <div class="tab-pane fade" id="tab3">
-                                    <table id="datatablesSimple" class="table table-striped table-bordered"
+                                    <table id="datatablesArriendo" class="table table-striped table-bordered"
                                            style="width:100%">
                                         <thead>
                                         <tr>
@@ -115,7 +115,7 @@
                                     </table>
                                 </div>
                                 <div class="tab-pane fade" id="tab4">
-                                    <table id="datatablesSimple" class="table table-striped table-bordered"
+                                    <table id="datatablesServicios" class="table table-striped table-bordered"
                                            style="width:100%">
                                         <thead>
                                         <tr>

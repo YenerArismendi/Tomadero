@@ -22,26 +22,28 @@
                             src="{{ $data->imagen ? asset('storage/' . $data->imagen) : asset('storage/default.jpg') }}"
                             class="card-img-top" alt="Imagen de {{ $data->nombre }}" style="border-radius: 50%">
                         <div class="card-body">
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                    data-bs-target="#infoProducto{{ $data->id }}">
-                                <i class="fa-solid fa-circle-info"></i>
-                            </button>
-                            <!-- Columna para editar la mesa -->
-                            <!-- Botón para abrir el modal de edición -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#editProductos{{ $data->id }}">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </button>
-                            <form id="deleteForm-{{ $data->id }}"
-                                  action="{{ route('productos.destroy', $data->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <!-- Botón para eliminar la mesa, con confirmación antes de ejecutar -->
-                                <button type="button" class="btn btn-danger text-start"
-                                        onclick="confirmDelete(event, 'deleteForm-{{ $data->id }}')">
-                                    <i class="fa-solid fa-trash"></i>
+                            <div class="d-flex justify-content-around">
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                        data-bs-target="#infoProducto{{ $data->id }}">
+                                    <i class="fa-solid fa-circle-info"></i>
                                 </button>
-                            </form>
+                                <!-- Columna para editar la mesa -->
+                                <!-- Botón para abrir el modal de edición -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#editProductos{{ $data->id }}">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <form id="deleteForm-{{ $data->id }}"
+                                      action="{{ route('productos.destroy', $data->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <!-- Botón para eliminar la mesa, con confirmación antes de ejecutar -->
+                                    <button type="button" class="btn btn-danger text-start"
+                                            onclick="confirmDelete(event, 'deleteForm-{{ $data->id }}')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
                             <!-- Modal de edición (se incluye el archivo de edición para cada mesa) -->
                             @include('modules.productos.updateProductos')
                             @include('modules.productos.detallesProductos')

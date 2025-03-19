@@ -25,6 +25,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('gastos', GastosController::class);
     //Ruta para guardar el pago del arriendo
     Route::post('pagoArriendo', [GastosController::class, 'storeArriendo'])->name('pagoArriendo');
+    //Ruta para guardar el pago del personal
+    Route::post('PagoPersonal', [GastosController::class, 'storePersonal'])->name('pagoPersonal');
+    //Ruta para almacenar el pago de los servicios
+    Route::post('pagoServicios', [GastosController::class, 'storeServicios'])->name('pagoServicios');
 
     Route::resource('personal', PersonalController::class);
 

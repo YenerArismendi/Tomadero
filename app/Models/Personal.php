@@ -18,6 +18,7 @@ class Personal extends Model
         'cargo',
         'tipo_pago',
         'cuenta_bancaria',
+        'estado',
     ];
 
     public function getEstadoTextAttribute()

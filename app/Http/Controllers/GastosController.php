@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PagoServicios;
 use Illuminate\Http\Request;
 use App\Models\Productos;
 use App\Models\CompraProductos;
 use App\Models\PagoArriendo;
+use App\Models\Personal;
+use App\Models\PagoPersonal;
 
 class GastosController extends Controller
 {
@@ -16,7 +19,9 @@ class GastosController extends Controller
     {
         $compraProductos = CompraProductos::with('producto')->get();
         $pagoArriendo = PagoArriendo::all();
-        return view('modules.gastos.Viewgastos', compact('compraProductos', 'pagoArriendo'));
+        $pagoPersonal = PagoPersonal::with('personal')->get();
+        $pagoServicios = PagoServicios::all();
+        return view('modules.gastos.Viewgastos', compact('compraProductos', 'pagoArriendo', 'pagoPersonal', 'pagoServicios'));
     }
 
     /**
@@ -25,13 +30,15 @@ class GastosController extends Controller
     public function create()
     {
         $productos = Productos::all();
-        return view('modules.gastos.gastos', compact('productos'));
+        $pagoPersonal = Personal::where('estado', 1)->get();
+        return view('modules.gastos.gastos', compact('productos', 'pagoPersonal'));
 
     }
 
     /**
      * Store a newly created resource in storage.
      */
+    //Metodo para almacenar la compra de productos
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -51,6 +58,7 @@ class GastosController extends Controller
         return redirect()->route('gastos.create')->with('success', '¡Registro exitoso!');
     }
 
+    //Metodo para almacenar el pago del arriendo
     public function storeArriendo(Request $request)
     {
         $request->validate([
@@ -68,6 +76,46 @@ class GastosController extends Controller
 
         return redirect()->route('gastos.create')->with('success', '¡Registro exitoso!');
 
+    }
+
+    //Metodo para almacenar el pago del personal
+    public function storePersonal(Request $request)
+    {
+        $request->validate([
+            'personal_id' => 'required|exists:personal,id',
+            'forma_pago' => 'required|string|max:255',
+            'total' => 'required|numeric|min:0|max:999999999999.99',
+            'descripcion' => 'nullable|string|max:500'
+        ]);
+
+        PagoPersonal::create([
+            'personal_id' => $request->personal_id,
+            'forma_pago' => $request->forma_pago,
+            'total' => $request->total,
+            'descripcion' => $request->descripcion
+        ]);
+
+        return redirect()->route('gastos.create')->with('success', 'Registro exitoso!');
+    }
+
+    //Metodo para almacenar el pago de los servicios
+    public function storeServicios(Request $request)
+    {
+      $request->validate([
+          'tipo_servicio' => 'required|string|max:255',
+          'fecha' => 'required|date',
+          'monto' => 'required|numeric|min:0|max:999999999999.99',
+          'descripcion' => 'nullable|string|max:500'
+      ]);
+
+     PagoServicios::create([
+         'tipo_servicio' => $request->tipo_servicio,
+         'fecha' => $request->fecha,
+         'monto' => $request->monto,
+         'descripcion' => $request->descripcion
+     ]);
+
+     return redirect()->route('gastos.create')->with('success', 'Registro exitoso!');
     }
 
     /**

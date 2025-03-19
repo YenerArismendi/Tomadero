@@ -14,168 +14,137 @@
                 Registro de gastos
             </div>
             <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                aria-controls="flush-collapseOne">
-                            Compra de productos
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                         data-bs-parent="#accordionFlushExample">
-                        <table id="datatablesSimple" class="table table-striped table-bordered text-center"
-                               style="width:100%">
-                            <thead>
-                            <tr>
-                                <th>Nombre producto</th>
-                                <th>Proveedor</th>
-                                <th>Cantidad</th>
-                                <th>Precio</th>
-                                <th>Total</th>
-                                <th>Descripción</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($compraProductos as $dataProductos)
-                                <tr>
-                                    <td>{{ $dataProductos->producto->nombre ?? '' }}</td>
-                                    <td>{{ $dataProductos->proveedor ?? '' }}</td>
-                                    <td>{{ $dataProductos->cantidad ?? '' }}</td>
-                                    <td>${{ number_format($dataProductos->precio, 3, ',', '.') }}</td>
-                                    <td>${{ number_format($dataProductos->total, 3, ',', '.') }}</td>
-                                    <td>{{ $dataProductos->descripcion ?? '' }}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                aria-controls="flush-collapseTwo">
-                            Pago de personal
-                        </button>
-                    </h2>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-                         data-bs-parent="#accordionFlushExample">
-                        <table id="datatablesSimple" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011-01-25</td>
-                                <td>$112,000</td>
-                            </tr>
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                            </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                aria-controls="flush-collapseThree">
-                            Pago de arriendo
-                        </button>
-                    </h2>
-                    <div id="flush-collapseThree" class="accordion-collapse collapse"
-                         aria-labelledby="flush-headingThree"
-                         data-bs-parent="#accordionFlushExample">
-                        <table id="datatablesSimple" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                            <tr>
-                                <th>Mes pagado</th>
-                                <th>Monto</th>
-                                <th>Descripcion</th>
-                                <th>Fecha de pago</th>
-                            </tr>
-                            </thead>
-                            @foreach($pagoArriendo as $dataArriendo)
-                                <tbody>
-                                <tr>
-                                    <td>{{ \Carbon\Carbon::parse($dataArriendo->fecha_pago)->translatedFormat('F') ?? '' }}</td>
-                                    <td>${{ number_format($dataArriendo->monto, 3, ',', '.') }}</td>
-                                    <td>{{ $dataArriendo->descripcion ?? '' }}</td>
-                                    <td>{{ $dataArriendo->created_at ?? '' }}</td>
-                                </tr>
-                                </tbody>
-                            @endforeach
-                        </table>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingFour">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseFour" aria-expanded="false"
-                                aria-controls="flush-collapseFour">
-                            Pago de servicios
-                        </button>
-                    </h2>
-                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
-                         data-bs-parent="#accordionFlushExample">
-                        <table id="datatablesSimple" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011-01-25</td>
-                                <td>$112,000</td>
-                            </tr>
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                            </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
+                <div class="container mt-4">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <ul class="nav nav-pills card-header-pills" id="myTab">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="tab1-tab" data-bs-toggle="pill" href="#tab1">Compra
+                                        de productos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="tab2-tab" data-bs-toggle="pill" href="#tab2">Pago de
+                                        personal</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="tab3-tab" data-bs-toggle="pill" href="#tab3">Pago de
+                                        arriendo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="tab3-tab" data-bs-toggle="pill" href="#tab4">Pago de
+                                        servicios</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="tab1">
+                                    <table id="datatablesSimple"
+                                           class="table table-striped table-bordered text-center"
+                                           style="width:100%">
+                                        <thead>
+                                        <tr>
+                                            <th>Nombre producto</th>
+                                            <th>Proveedor</th>
+                                            <th>Cantidad</th>
+                                            <th>Precio</th>
+                                            <th>Total</th>
+                                            <th>Fecha</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($compraProductos as $dataProductos)
+                                            <tr>
+                                                <td>{{ $dataProductos->producto->nombre ?? '' }}</td>
+                                                <td>{{ $dataProductos->proveedor ?? '' }}</td>
+                                                <td>{{ $dataProductos->cantidad ?? '' }}</td>
+                                                <td>${{ number_format($dataProductos->precio, 3, ',', '.') }}</td>
+                                                <td>${{ number_format($dataProductos->total, 3, ',', '.') }}</td>
+                                                <td>{{ $dataProductos->created_at ?? '' }}</td>
+                                                <td>{{ $dataProductos->descripcion ?? '' }}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="tab2">
+                                    <table id="datatablesSimple" class="table table-striped table-bordered"
+                                           style="width:100%">
+                                        <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Forma de pago</th>
+                                            <th>Total</th>
+                                            <th>Descripcion</th>
+                                        </tr>
+                                        </thead>
+                                        @foreach($pagoPersonal as $dataPagoPersonal) @endforeach
+                                        <tbody>
+                                        <tr>
+                                            <td>{{ $dataPagoPersonal->personal->nombre . ' ' . $dataPagoPersonal->personal->apellido}}</td>
+                                            <td>{{ $dataPagoPersonal->forma_pago }}</td>
+                                            <td>${{ number_format ($dataPagoPersonal->total, 3, ',', '.' )}}</td>
+                                            <td>{{ $dataPagoPersonal->descripcion }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
 
+                                </div>
+                                <div class="tab-pane fade" id="tab3">
+                                    <table id="datatablesSimple" class="table table-striped table-bordered"
+                                           style="width:100%">
+                                        <thead>
+                                        <tr>
+                                            <th>Mes pagado</th>
+                                            <th>Monto</th>
+                                            <th>Descripcion</th>
+                                            <th>Fecha de pago</th>
+                                        </tr>
+                                        </thead>
+                                        @foreach($pagoArriendo as $dataArriendo)
+                                            <tbody>
+                                            <tr>
+                                                <td>{{ \Carbon\Carbon::parse($dataArriendo->fecha_pago)->translatedFormat('F') ?? '' }}</td>
+                                                <td>${{ number_format($dataArriendo->monto, 3, ',', '.') }}</td>
+                                                <td>{{ $dataArriendo->descripcion ?? '' }}</td>
+                                                <td>{{ $dataArriendo->created_at ?? '' }}</td>
+                                            </tr>
+                                            </tbody>
+                                        @endforeach
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="tab4">
+                                    <table id="datatablesSimple" class="table table-striped table-bordered"
+                                           style="width:100%">
+                                        <thead>
+                                        <tr>
+                                            <th>Mes pagado</th>
+                                            <th>tipo de servicio</th>
+                                            <th>Monto pagado</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                        </thead>
+                                        @foreach($pagoServicios as $dataServicios)
+                                            <tbody>
+                                            <tr>
+                                                <td>{{ \Carbon\Carbon::parse($dataServicios->fecha)->translatedFormat('F') ?? '' }}</td>
+                                                <td>{{ $dataServicios->tipo_servicio }}</td>
+                                                <td>${{ number_format($dataServicios->monto, 3, ',', '.') }}</td>
+                                                <td>{{ $dataServicios->descripcion}}</td>
+                                            </tr>
+                                            </tbody>
+                                        @endforeach
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 @endsection
 
 

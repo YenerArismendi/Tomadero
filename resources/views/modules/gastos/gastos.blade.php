@@ -34,7 +34,7 @@
                         <h5 class="card-title">Pago de personal</h5>
                         <!-- Botón para abrir el modal para registrar una nuevo producto -->
                         <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                data-bs-target="#modalCreateProductos">
+                                data-bs-target="#modalPagoPersonal">
                             Registrar pago <i class="fa-solid fa-plus"></i>
                         </button>
                     </div>
@@ -58,7 +58,10 @@
                          style="border-radius: 50%">
                     <div class="card-body text-center">
                         <h5 class="card-title">Pagos de servicios</h5>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#modalPagoServicios">
+                            Registrar pago <i class="fa-solid fa-plus"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -69,6 +72,8 @@
     </div>
     @include('modules.gastos.createProductosGastos', ['productos' => $productos])
     @include('modules.gastos.createPagoArriendo')
+    @include('modules.gastos.createPagoPersonal', ['pagoPersonal' => $pagoPersonal])
+    @include('modules.gastos.pagoServicios')
 
     <!-- Componente SweetAlert (alertas) -->
     @include('components.sweetAlert')

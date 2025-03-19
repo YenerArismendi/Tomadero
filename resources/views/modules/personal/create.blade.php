@@ -20,9 +20,14 @@
                             <input type="text" class="form-control" id="apellido" name="apellido" required>
                         </div>
 
-                        <div class="mb-3 col-6">
-                            <label for="tipo_documento" class="col-form-label">Tipo de documento:</label>
-                            <input type="text" class="form-control" id="tipo_documento" name="tipo_documento" required>
+                        <div class="mb-3 col-6 mt-4">
+                            <select class="form-select" aria-label="Default select example" name="tipo_documento"
+                                    required>
+                                <option selected>Tipo de documento</option>
+                                <option value="CC">Cédula de ciudadania</option>
+                                <option value="CE">Cédula de extranjeria</option>
+                                <option value="PT">Permiso temporal</option>
+                            </select>
                         </div>
                         <div class="mb-3 col-6">
                             <label for="numero_documento" class="col-form-label">Numero de documento:</label>
@@ -36,17 +41,19 @@
                         </div>
                         <div class="mb-3 col-6">
                             <label for="correo" class="col-form-label">Correo electronico:</label>
-                            <input type="text" class="form-control" id="correo" name="correo">
+                            <input type="email" class="form-control" id="correo" name="correo">
                         </div>
                         <div class="mb-3 col-6">
                             <label for="cargo" class="col-form-label">cargo:</label>
                             <input type="text" class="form-control" id="cargo" name="cargo" required>
                         </div>
-                        <select class="form-select" aria-label="Default select example" name="tipo_pago">
-                            <option selected>Tipo de pago</option>
-                            <option value="efectivo">Efectivo</option>
-                            <option value="transferencia">transferencia</option>
-                        </select>
+                        <div class="mb-3 col-6 mt-4">
+                            <select class="form-select" aria-label="Default select example" name="tipo_pago">
+                                <option selected>Tipo de pago</option>
+                                <option value="efectivo">Efectivo</option>
+                                <option value="transferencia">transferencia</option>
+                            </select>
+                        </div>
                         <div class="mb-3 col-6">
                             <label for="cuenta_bancaria" class="col-form-label">Cuenta:</label>
                             <input type="text" class="form-control" id="cuenta_bancaria" name="cuenta_bancaria">

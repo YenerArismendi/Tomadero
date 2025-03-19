@@ -29,3 +29,4 @@ import './bootstrap';
 import './scripts.js';
 import './modules/gastosTotal.js';
 import './modules/formatoPesos.js';
+

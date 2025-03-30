@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VentasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\cuentasController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\GastosController;
 use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\MesasController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,8 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::post('PagoPersonal', [GastosController::class, 'storePersonal'])->name('pagoPersonal');
     //Ruta para almacenar el pago de los servicios
     Route::post('pagoServicios', [GastosController::class, 'storeServicios'])->name('pagoServicios');
+    Route::resource('mesas', MesasController::class);
 
     Route::resource('personal', PersonalController::class);
+    Route::resource('ventas', VentasController::class);
 
 });
 

@@ -3,4 +3,4 @@
 @import 'datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css'; /* 3️⃣ Estilos para botones de DataTables */
 @import 'datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css'; /* 4️⃣ Estilos responsivos de DataTables */
 @import 'styles.css'; /* 5️⃣ Tu CSS personalizado al final */
-@import "personalizados.css";
+@import 'personalizados.css';

@@ -1,0 +1,10 @@
+.contenido
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: grey;
+    width: 286px;
+    height: 200px;
+    border-radius: 7px 7px 0px 0px;
+}

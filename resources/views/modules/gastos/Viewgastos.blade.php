@@ -76,6 +76,7 @@
                                             <th>Nombre</th>
                                             <th>Forma de pago</th>
                                             <th>Total</th>
+                                            <th>Fecha de pago</th>
                                             <th>Descripcion</th>
                                         </tr>
                                         </thead>
@@ -85,6 +86,7 @@
                                             <td>{{ $dataPagoPersonal->personal->nombre . ' ' . $dataPagoPersonal->personal->apellido}}</td>
                                             <td>{{ $dataPagoPersonal->forma_pago }}</td>
                                             <td>${{ number_format ($dataPagoPersonal->total, 3, ',', '.' )}}</td>
+                                            <td>{{ $dataPagoPersonal->created_at }}</td>
                                             <td>{{ $dataPagoPersonal->descripcion }}</td>
                                         </tr>
                                         </tbody>
@@ -122,6 +124,7 @@
                                             <th>Mes pagado</th>
                                             <th>tipo de servicio</th>
                                             <th>Monto pagado</th>
+                                            <th>Fecha de pago</th>
                                             <th>Descripción</th>
                                         </tr>
                                         </thead>
@@ -131,6 +134,7 @@
                                                 <td>{{ \Carbon\Carbon::parse($dataServicios->fecha)->translatedFormat('F') ?? '' }}</td>
                                                 <td>{{ $dataServicios->tipo_servicio }}</td>
                                                 <td>${{ number_format($dataServicios->monto, 3, ',', '.') }}</td>
+                                                <td>{{ $dataServicios->created_at}}</td>
                                                 <td>{{ $dataServicios->descripcion}}</td>
                                             </tr>
                                             </tbody>

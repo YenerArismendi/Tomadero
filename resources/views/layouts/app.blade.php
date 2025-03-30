@@ -82,6 +82,12 @@
                         Dashboard
                     </a>
 
+                    <!-- Enlace a la sección de ventas -->
+                    <a class="nav-link" href="{{ route('ventas.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-shop"></i></div>
+                        Ventas
+                    </a>
+
                     <!-- Enlace a la sección de cuentas -->
                     <a class="nav-link" href="{{ route('cuentas.index') }}">
                         <div class="sb-nav-link-icon"><i class="fa fa-tasks" aria-hidden="true"></i></div>
@@ -98,6 +104,12 @@
                     <a class="nav-link" href="{{ route('personal.index') }}">
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                         Personal
+                    </a>
+
+                    <!-- Enlace a la sección de mesas -->
+                    <a class="nav-link" href="{{ route('mesas.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-table"></i></div>
+                        Mesas
                     </a>
 
                     <!-- Enlace a la sección de productos -->
